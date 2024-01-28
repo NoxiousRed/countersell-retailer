@@ -28,9 +28,9 @@ header {
 }
 
 #logo-content img {
-  margin-top: 4px;
+  margin-top: .4vh;
   height: 8vh;
-  margin-left: 4px;
+  margin-left: .4vh;
 }
 
 #site-name {
@@ -49,8 +49,8 @@ header {
 }
 
 #nav-content img {
-  width: 30px;
-  height: 30px;
+  width: 3vh;
+  height: 3vh;
 }
 
 #search-form{
@@ -58,7 +58,7 @@ header {
 }
 
 #search-input {
-  padding: 2px;
+  padding: .2vh;
   background-color: #9DB4C0;
   color: #5C6B73;
 }
@@ -70,7 +70,7 @@ header {
 .nav-link {
   color: #9DB4C0;
   text-decoration: none;
-  margin-right: 20px
+  margin-right: 2vh
 }
 
 .nav-link:hover {
@@ -88,18 +88,18 @@ header {
 
 #left-section {
   flex: 1;
-  height: 600px;
+  height: 70vh;
   background-color: #202C31;
   align-items: center;
 }
 
 #left-section img {
-  height: 400px;
-  margin-left: 30px;
+  height: 40vh;
+  margin-left: 5vh;
 }
 
 .section-splash{
-  margin-top: 10px;
+  margin-top: 1vh;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   color: #9DB4C0;
