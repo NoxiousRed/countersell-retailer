@@ -5,6 +5,10 @@
   padding:0;
 }
 
+#page-container {
+  margin: 0 auto;
+}
+
 body {
   background-color: #9DB4C0;
 }
@@ -24,9 +28,9 @@ header {
 }
 
 #logo-content img {
-  margin-top: 4px;
+  margin-top: .4vh;
   height: 8vh;
-  margin-left: 4px;
+  margin-left: .4vh;
 }
 
 #site-name {
@@ -45,8 +49,8 @@ header {
 }
 
 #nav-content img {
-  width: 30px;
-  height: 30px;
+  width: 3vh;
+  height: 3vh;
 }
 
 #search-form{
@@ -54,9 +58,9 @@ header {
 }
 
 #search-input {
-  padding: 2px;
+  padding: .2vh;
   background-color: #9DB4C0;
-  color: #5C6B73
+  color: #5C6B73;
 }
 
 #search-button {
@@ -66,9 +70,61 @@ header {
 .nav-link {
   color: #9DB4C0;
   text-decoration: none;
-  margin-right: 20px
+  margin-right: 2vh
 }
 
 .nav-link:hover {
   text-decoration: underline;
+}
+
+#dual-container {
+  height: 60%;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+#left-section {
+  flex: 1;
+  height: 70vh;
+  background-color: #202C31;
+  align-items: center;
+}
+
+#left-section img {
+  height: 40vh;
+  margin-left: 5vh;
+}
+
+.section-splash{
+  margin-top: 1vh;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #9DB4C0;
+}
+
+.section-link {
+  color: #9DB4C0;
+}
+
+#right-section {
+  flex: 2;
+  height: 70vh;
+  background-image: url(images/phyrexian-splash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+footer{
+  height: 15vh;
+  background-color: #5C6B73;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
 }
