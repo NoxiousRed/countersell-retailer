@@ -84,11 +84,11 @@ header {
 }
 
 #dual-container {
-  height: 60%;
+  height: 100%;
   width: 85%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   margin: auto;
 }
 
@@ -113,7 +113,7 @@ header {
 
 #left-section {
   flex: 1;
-  height: 70vh;
+  height: auto;
   background-color: #202C31;
   align-items: center;
 }
@@ -126,7 +126,7 @@ header {
 
 #right-section {
   flex: 2;
-  height: 70vh;
+  height: 81vh;
   background-image: url(images/phyrexian-splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -152,7 +152,6 @@ footer img {
 }
 
 .footer-content {
-  margin-top: 1vh;
   display: block;
   text-align: center;
 }
