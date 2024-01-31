@@ -7,10 +7,16 @@
 
 #page-container {
   margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
 }
 
 body {
   background-color: #9DB4C0;
+}
+
+#content-wrap {
+  padding-bottom: 12vh;
 }
 
 header {
@@ -38,7 +44,7 @@ header {
   margin-left: 1vh;
   font-weight: bold;
   color: #E07A5F;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 #nav-content{
@@ -78,24 +84,12 @@ header {
 }
 
 #dual-container {
-  height: 60%;
-  width: 85%;
+  height: 100%;
+  width: 85vw;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   margin: auto;
-}
-
-#left-section {
-  flex: 1;
-  height: 70vh;
-  background-color: #202C31;
-  align-items: center;
-}
-
-#left-section img {
-  height: 40vh;
-  margin-left: 5vh;
 }
 
 .section-splash{
@@ -107,11 +101,34 @@ header {
 
 .section-link {
   color: #9DB4C0;
+  text-decoration: underline;
 }
+
+.line {
+  border-bottom: 1vh solid #9DB4C0;
+  width: 100%;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+
+#left-section {
+  flex: 1;
+  height: auto;
+  background-color: #202C31;
+  align-items: center;
+  justify-content: center;
+}
+
+#left-section img {
+  height: 40vh;
+  margin-left: 4vw;
+
+}
+
 
 #right-section {
   flex: 2;
-  height: 70vh;
+  height: 81vh;
   background-image: url(images/phyrexian-splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -121,10 +138,22 @@ header {
 }
 
 footer{
-  height: 15vh;
+  height: 12vh;
   background-color: #5C6B73;
   position: absolute;
   bottom: 0;
   width: 100%;
+  text-align: center;
+  color: #9DB4C0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+footer img {
+  height: 4vh;
+  text-align: center;
+}
+
+.footer-content {
+  display: block;
+  text-align: center;
 }
