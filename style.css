@@ -85,7 +85,7 @@ header {
 
 #dual-container {
   height: 100%;
-  width: 85%;
+  width: 85vw;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -116,11 +116,13 @@ header {
   height: auto;
   background-color: #202C31;
   align-items: center;
+  justify-content: center;
 }
 
 #left-section img {
   height: 40vh;
-  margin-left: 5vh;
+  margin-left: 4vw;
+
 }
 
 
