@@ -113,7 +113,7 @@ header {
 
 #left-section {
   flex: 1;
-  height: auto;
+  height: 70vh;
   background-color: #202C31;
   align-items: center;
   justify-content: center;
@@ -128,7 +128,7 @@ header {
 
 #right-section {
   flex: 2;
-  height: 81vh;
+  height: 70vh;
   background-image: url(images/phyrexian-splash.jpg);
   background-position: center;
   background-repeat: no-repeat;
