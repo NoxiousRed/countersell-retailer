@@ -86,6 +86,14 @@
   #product-list-container {
     
   }
+
+  .list-products {
+
+  }
+
+  .list-products img {
+    height: 25vh;
+  }
   
   footer{
     height: 12vh;

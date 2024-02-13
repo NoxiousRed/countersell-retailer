@@ -1,15 +1,27 @@
 let products = null;
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+  const inventory = document.getElementById('list-products');
 
-  const inventory = document.getElementById('product-list-container');
+  const response = await fetch('products.json');
+  products = await response.json();
+  console.log(products);
 
-  fetch('products.json')
-    .then(response => response.json())
-    .then(data => {
-      products = data;
-      console.log(products)
-    })
-    .catch(error => console.error('Error fetching JSON:', error));
-})
+  let listProduct = document.querySelector('.list-products')
+
+  products.forEach(card => {
+    const listItem = createListItem(card, listProduct)
+  });
+});
+
+function createListItem(card, container) {
+  //link the card to its corresponding container
+  const listItem = document.createElement('p');
+  listItem.className = 'list-item';
+  listItem.innerHTML = `<img src = ${card.image} alt = "card-placeholder"><br>${card.name}<br>${card.price}<br><a href="/details.html?id=${card.id}">View Card</a>`;
+  container.appendChild(listItem);
+  
+
+  return listItem;
+}
 
