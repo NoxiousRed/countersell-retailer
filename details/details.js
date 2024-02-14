@@ -7,11 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
     let id = new URLSearchParams(window.location.search).get('id');
     //parse out the details for the card associated with that id
     let cardDetails = getCardDetails(id);
+    console.log(cardDetails);
 
     async function getCardDetails(cardId) {
+        console.log(cardId);
         const response = await fetch("../products/products.json")
         products = await response.json();
         console.log(products);
+
+        //getting associated card details
+        for(let i = 0; i < products.length; i++) {
+            if (products[i].id == cardId) {
+                return(products[i]);
+            }
+        }
     }
 
 });
