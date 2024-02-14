@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #page-container {
@@ -51,7 +52,6 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #nav-content img {
@@ -93,18 +93,23 @@ header {
 }
 
 .title {
-
+  text-align: center;
+  margin: 2vh;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .list-products {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-content: center;
 }
 
 .list-item {
-
+  padding: 3vw;
+  margin: 1vw;
+  background-color:#9DB4C0;
+  text-align: center;
 }
 
 .list-item img {

@@ -2,8 +2,8 @@
     {
         "id": 1,
         "name": "ExCard1",
-        "price": 1.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$1.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -11,8 +11,8 @@
     {
         "id": 2,
         "name": "ExCard2",
-        "price": 2.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$2.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -20,8 +20,8 @@
     {
         "id": 3,
         "name": "ExCard3",
-        "price": 3.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$3.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -29,8 +29,8 @@
     {
         "id": 4,
         "name": "ExCard4",
-        "price": 4.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$4.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -38,8 +38,8 @@
     {
         "id": 5,
         "name": "ExCard5",
-        "price": 5.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$5.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -47,8 +47,8 @@
     {
         "id": 6,
         "name": "ExCard6",
-        "price": 6.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$6.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -56,8 +56,8 @@
     {
         "id": 7,
         "name": "ExCard7",
-        "price": 7.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$7.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
@@ -65,8 +65,8 @@
     {
         "id": 8,
         "name": "ExCard8",
-        "price": 8.00,
-        "image": "images/product-images/sample-card-placeholder.png",
+        "price": "$8.00",
+        "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
         "set-identifier": "SAMP-SET",
         "set-year": "Sample-20XX"
