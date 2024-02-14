@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Countersell Products</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="products.css">
+    <script src="products.js" defer></script>
 </head>
 
 <div id="page-container">
@@ -16,10 +17,10 @@
 
                 <div id="logo-container">
                     <div id="logo-content">
-                        <a href="index.html"><img src="images/possible-icon.png" alt="Countersell-logo"></a>
+                        <a href="../index.html"><img src="../images/possible-icon.png" alt="Countersell-logo"></a>
                     </div>
                     <div>
-                        <a href="index.html" id="site-name">Countersell</a>
+                        <a href="../index.html" id="site-name">Countersell</a>
                     </div>
                 </div>
 
@@ -32,16 +33,24 @@
                             <input type="text" id="search-input" placeholder="Search Countersell">
                             <button type="submit" id="search-button">Go</button>
                         </form>
-                        <a href="#" class="nav-link">SIGN IN</a>
+                        <a href="products/products.html" class="nav-link">SIGN IN</a>
                         <a href="#" class="nav-link">INVENTORY</a>
-                        <a href="#" class="nav-link"><img src="images/Shopping-cart.png" alt="Cart"></a>
+                        <a href="cart/cart.html" class="nav-link"><img src="../images/Shopping-cart.png" alt="Cart"></a>
                     </span>
 
                 </nav>
             </header>
 
+            <main>
+                <div class="title">Product List:</div>
+
+                <div id="product-list-container">
+                    <div class="list-products"></div>
+                </div>
+            </main>
+
             <footer>
-                <img src="images/possible-icon.png" alt="Countersell-logo">
+                <img src="../images/possible-icon.png" alt="Countersell-logo">
                 <h4 class="footer-content">
                     Copyright &#169;2024 Countersell&reg;. All Rights Reserved.
                 </h4>
