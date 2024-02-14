@@ -18,7 +18,7 @@ function createListItem(card, container) {
   //link the card to its corresponding container
   const listItem = document.createElement('p');
   listItem.className = 'list-item';
-  listItem.innerHTML = `<img src = ${card.image} alt = "card-placeholder"><br>${card.name}<br>${card.price}<br><a href="/details.html?id=${card.id}">View Card</a>`;
+  listItem.innerHTML = `<img src = ${card.image} alt = "card-placeholder"><br>${card.name}<br>${card.price}<br><a href="../details/details.html?id=${card.id}">View Card</a>`;
   container.appendChild(listItem);
   
 
