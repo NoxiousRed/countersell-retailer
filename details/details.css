@@ -82,6 +82,21 @@
   .nav-link:hover {
     text-decoration: underline;
   }
+
+  .details-container {
+    display: flex;
+    background-color: #5C6B73;
+    height: 65%;
+    width: 85%;
+  }
+
+  .img-container {
+
+  }
+
+  .card-details {
+    
+  }
   
   footer {
     height: 12vh;
