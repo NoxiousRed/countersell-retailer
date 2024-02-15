@@ -5,8 +5,8 @@
         "price": "$1.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 2,
@@ -14,8 +14,8 @@
         "price": "$2.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 3,
@@ -23,8 +23,8 @@
         "price": "$3.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 4,
@@ -32,8 +32,8 @@
         "price": "$4.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 5,
@@ -41,8 +41,8 @@
         "price": "$5.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 6,
@@ -50,8 +50,8 @@
         "price": "$6.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 7,
@@ -59,8 +59,8 @@
         "price": "$7.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     },
     {
         "id": 8,
@@ -68,7 +68,7 @@
         "price": "$8.00",
         "image": "../images/product-images/sample-card-placeholder.png",
         "description": "sample-card-description",
-        "set-identifier": "SAMP-SET",
-        "set-year": "Sample-20XX"
+        "setIdentifier": "SAMP-SET",
+        "setYear": "Sample-20XX"
     }
 ]

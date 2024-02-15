@@ -83,10 +83,16 @@
     text-decoration: underline;
   }
 
-  .content-container {
+  #content-container {
     display:flex;
     justify-content: space-between;
     height: 100%;
+  }
+
+  #content-container img {
+    max-height: 70vh;
+    max-width: 50vw;
+    padding: 2vh;
   }
 
   #cart-button-holder {
@@ -99,9 +105,9 @@
     background-color: #9DB4C0;
   }
 
-  .details-container {
+  #details-container {
     height: 100%;
-    width: 50vw;
+    width: 60vw;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -111,18 +117,12 @@
     background-color: #5C6B73;
   }
 
-  .img-container {
-    height: 70%;
-    width: 50%
+  #img-container {
+    max-width: 100%;
+    height: auto;
   }
 
-  .img-container img{
-    max-height: 70vh;
-    max-width: 50vw;
-    padding: 2vh;
-  }
-
-  .card-details {
+  #card-details {
     color:#9DB4C0;
     display: flex;
     flex-direction: column;
