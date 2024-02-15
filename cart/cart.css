@@ -137,9 +137,14 @@ header {
   justify-content: flex-end;
 }
 
-#total-amount {
+#total-amount-descriptor {
+  text-align: center;
   margin-top: 5vh;
-  margin-left: 2vw;
+}
+
+#total-amount {
+  text-align: center;
+  margin-top: 5vh;
 }
 
 #checkout-button {
