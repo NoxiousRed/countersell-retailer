@@ -82,6 +82,55 @@
   .nav-link:hover {
     text-decoration: underline;
   }
+
+  .content-container {
+    display:flex;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  #cart-button-holder {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 3vh;
+    display: flex;
+    margin: 1vh;
+    background-color: #9DB4C0;
+  }
+
+  .details-container {
+    height: 100%;
+    width: 50vw;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #5C6B73;
+  }
+
+  .img-container {
+    height: 70%;
+    width: 50%
+  }
+
+  .img-container img{
+    max-height: 70vh;
+    max-width: 50vw;
+    padding: 2vh;
+  }
+
+  .card-details {
+    color:#9DB4C0;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    justify-content: flex-start;
+    padding-top: 15vh;
+    gap: 3vh;
+  }
   
   footer {
     height: 12vh;
