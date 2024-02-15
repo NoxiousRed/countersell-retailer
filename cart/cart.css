@@ -82,6 +82,52 @@
   .nav-link:hover {
     text-decoration: underline;
   }
+
+  .cart-container {
+    height: 100%;
+    width: 85vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: auto;
+    margin-top: 10vh;
+    background-color: #5C6B73;
+  }
+
+  .cart-contents {
+    display:flex;
+    flex: 2;
+    height: auto;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    color:#9DB4C0;
+    flex-direction: column;
+  }
+
+  #current-quantity {
+    display: inline;
+  }
+  
+  .cart-contents img {
+    height: 20vh;
+    margin-left: 4vw;
+  }
+
+  .item-details {
+    margin-left: 1vw;
+    margin-top: 2vh
+  }
+
+  #quantity {
+    width: 5vw;
+  }
+  
+  .checkout-contents {
+    flex: 1;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+  }
   
   footer {
     height: 12vh;
