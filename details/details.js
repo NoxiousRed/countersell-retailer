@@ -10,10 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(cardDetails);
 
     async function getCardDetails(cardId) {
-        console.log(cardId);
         const response = await fetch("../products/products.json")
         products = await response.json();
-        console.log(products);
 
         //getting associated card details
         for(let i = 0; i < products.length; i++) {
