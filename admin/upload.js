@@ -1,9 +1,9 @@
 'use strict';
 (function () {
-
     window.addEventListener('load', init);
 
     function init() {
+        console.log("Window Loaded!");
         //set up form on upload.html to accept submission
         id('upload-form').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -14,20 +14,16 @@
     //placeholder URL for seeing resulting JSON after upload
     const POST_URL = 'https://crudcrud.com/api/a6d60e4b3b214d6390c3018506182424';
     function submitForm() {
-        let params = new FormData(id('upload-form')); //pass in form
-        let jsonBody = JSON.stringify(Object.fromEntries(params)); //make form json string
+        console.log("Form submitted!")
+        let formData = new FormData(id('upload-form')); //pass in form
         //placeholder justcors for seeing resulting JSON after upload
         let corsUrl = 'https://justcors.com/tl_783a341/' + POST_URL;
         fetch(corsUrl, {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
-            body: jsonBody
+            body: formData
         })
             .then(checkStatus)
-            .then(displayData)
+            .then(console.log)
             .catch(alert);
     }
 
@@ -67,4 +63,4 @@
         }
         return response.json();
     }
-})
+})();
