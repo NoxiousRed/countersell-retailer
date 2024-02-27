@@ -17,7 +17,7 @@
         let params = new FormData(id('upload-form')); //pass in form
         let jsonBody = JSON.stringify(Object.fromEntries(params)); //make form json string
         //placeholder justcors for seeing resulting JSON after upload
-        let corsUrl = 'https://justcors.com/tl_08e3233/' + POST_URL;
+        let corsUrl = 'https://justcors.com/tl_783a341/' + POST_URL;
         fetch(corsUrl, {
             method: 'POST',
             headers: {
@@ -27,12 +27,12 @@
             body: jsonBody
         })
             .then(checkStatus)
-            .then(console.log)
+            .then(displayData)
             .catch(alert);
     }
 
     function displayData() {
-        let url = 
+        let url = POST_URL
 
         //chaining thens allows you to access whatever data is returned in a then to following thens.
         fetch(url)
@@ -41,24 +41,15 @@
                 console.log(submittedData);
                 let div = id('container');
 
+                let responseData = document.createElement('p');
+                responseData.innerHTML = 'Successfully uploaded data:';
+                div.appendChild(responseData);
+
                 for (const item of submittedData) {
                     let cardName = document.createElement('p');
-                    const cardPrice = item['name'];
-                    repoName.innerHTML = 'Price: ' + cardPrice;
-                    div.appendChild(repoName);
-
-                    let repoDate = document.createElement('p');
-                    const date = item['created_at'];
-                    repoDate.innerHTML = 'Created: ' + date;
-                    div.appendChild(repoDate);
-
-                    let upateDate = document.createElement('p');
-                    const updated = item['updated_at'];
-                    upateDate.innerHTML = 'Updated: ' + updated;
-                    div.appendChild(upateDate);
-
-                    let rule = document.createElement('hr');
-                    div.appendChild(rule);
+                    const name = item['name'];
+                    repoName.innerHTML = 'Name: ' + name;
+                    div.appendChild(cardName);
                 }
             })
             .catch((error) => {

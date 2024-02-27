@@ -83,6 +83,30 @@ header {
     text-decoration: underline;
 }
 
+#dual-container {
+    height: 100%;
+    width: 85vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: auto;
+    margin-top: 5vh
+}
+
+#upload-form {
+    flex: 1;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    flex: 2;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
 footer {
     height: 12vh;
     background-color: #5C6B73;

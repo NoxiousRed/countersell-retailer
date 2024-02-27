@@ -35,7 +35,8 @@
                         </form>
                         <a href="products/products.html" class="nav-link">SIGN IN</a>
                         <a href="#" class="nav-link">INVENTORY</a>
-                        <a href="../cart/cart.html" class="nav-link"><img src="../images/Shopping-cart.png" alt="Cart"></a>
+                        <a href="../cart/cart.html" class="nav-link"><img src="../images/Shopping-cart.png"
+                                alt="Cart"></a>
                     </span>
 
                 </nav>
@@ -43,12 +44,16 @@
 
             <main>
 
-                <form id="upload-form">
+                <div id="dual-container">
+                    <form id="upload-form">
+                        <label for="file-input">Select a file to upload:</label>
+                        <input type="file" id="file-input" name="file" accept=".json, .csv, .txt">
+                        <button type="submit" value="Submit">Upload</button>
+                    </form>
 
-                </form>
-
-                <div id="container"></div>
-
+                    <div id="container"></div>
+                </div>
+                
             </main>
 
             <footer>
