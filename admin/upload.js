@@ -11,7 +11,7 @@
         });
     }
 
-    //placeholder URL for seeing resulting JSON after upload
+    //REPLACE URL WITH EXPRESS SERVER
     const POST_URL = 'https://crudcrud.com/api/a6d60e4b3b214d6390c3018506182424';
     function submitForm() {
         console.log("Form submitted!")
