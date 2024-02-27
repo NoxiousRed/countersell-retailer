@@ -113,6 +113,43 @@ header {
     overflow: hidden;
 }
 
+#form-holder {
+    display:flex;
+    flex-direction: column;
+    gap: 2vh;
+    text-align: center;
+    margin: 3vh;
+}
+
+#productSelect {
+    width: 20vw;
+    display: block;
+    margin: 0 auto;
+}
+
+#productForm{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 20vw;
+    gap: 1vh;
+    margin: 0 auto;
+}
+
+.form-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#submit-btn {
+    display: flex;
+    align-content: center;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
 footer {
     height: 12vh;
     background-color: #5C6B73;
