@@ -102,6 +102,10 @@ header {
     justify-content: center;
 }
 
+#example-data {
+    display: inline;
+}
+
 #container {
     flex: 2;
     height: auto;
