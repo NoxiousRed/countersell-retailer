@@ -9,9 +9,10 @@
     <script src="upload.js" defer></script>
 </head>
 
-<div id="page-container">
+<body>
+    <div id="page-container">
 
-    <body>
+
         <div id="content-wrap">
 
             <header>
@@ -25,21 +26,17 @@
                     </div>
                 </div>
 
-                <nav>
-                    <span id="nav-content">
-                        <a href="#" class="nav-link">Sets 2000-2010</a>
-                        <a href="#" class="nav-link">Sets 2010-2020</a>
-                        <a href="#" class="nav-link">Sets 2020-Present</a>
-                        <form id="search-form">
-                            <input type="text" id="search-input" placeholder="Search Countersell">
-                            <button type="submit" id="search-button">Go</button>
-                        </form>
-                        <a href="products/products.html" class="nav-link">SIGN IN</a>
-                        <a href="#" class="nav-link">INVENTORY</a>
-                        <a href="../cart/cart.html" class="nav-link"><img src="../images/Shopping-cart.png"
-                                alt="Cart"></a>
-                    </span>
-
+                <nav id="nav-content">
+                    <a href="#" class="nav-link">Sets 2000-2010</a>
+                    <a href="#" class="nav-link">Sets 2010-2020</a>
+                    <a href="#" class="nav-link">Sets 2020-Present</a>
+                    <form id="search-form">
+                        <input type="text" id="search-input" placeholder="Search Countersell">
+                        <button type="submit" id="search-button">Go</button>
+                    </form>
+                    <a href="products/products.html" class="nav-link">SIGN IN</a>
+                    <a href="#" class="nav-link">INVENTORY</a>
+                    <a href="../cart/cart.html" class="nav-link"><img src="../images/Shopping-cart.png" alt="Cart"></a>
                 </nav>
             </header>
 
@@ -60,22 +57,22 @@
                             <label for="productId">Product ID:</label>
                             <input type="text" id="productId" name="productId" readonly>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="productName">Product Name:</label>
                             <input type="text" id="productName" name="productName" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="productPrice">Product Price:</label>
                             <input type="number" id="productPrice" name="productPrice" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="productPrice">Product Description:</label>
                             <input type="text" id="productDescription" name="productDescription" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="productPrice">Product Set:</label>
                             <input type="text" id="productSet" name="productSet" required>
@@ -88,13 +85,13 @@
 
                         <div class="form-group">
                             <label for="productPrice">Image Path:</label>
-                        <input type="text" id="productImage" name="productImage" required>
+                            <input type="text" id="productImage" name="productImage" required>
                         </div>
-                        
+
                         <button id="submit-btn" type="submit">Save Changes</button>
                     </form>
                 </div>
-                
+
             </main>
 
             <footer>
@@ -112,7 +109,8 @@
                 </h5>
             </footer>
         </div>
-    </body>
-</div>
+
+    </div>
+</body>
 
 </html>
