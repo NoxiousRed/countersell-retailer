@@ -1,0 +1,172 @@
+/* follow colors: https://coolors.co/e07a5f-f2cc8f-9db4c0-5c6b73-253237 */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#page-container {
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+}
+
+body {
+    background-color: #9DB4C0;
+}
+
+#content-wrap {
+    padding-bottom: 12vh;
+}
+
+header {
+    height: 8vh;
+    background-color: #5C6B73;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo-content img {
+    margin-top: .4vh;
+    height: 8vh;
+    margin-left: .4vh;
+}
+
+#site-name {
+    font-size: 4vh;
+    margin-left: 1vh;
+    font-weight: bold;
+    color: #E07A5F;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+#nav-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nav-content img {
+    width: 3vh;
+    height: 3vh;
+}
+
+#search-form {
+    margin-right: 2vh;
+}
+
+#search-input {
+    padding: .2vh;
+    background-color: #9DB4C0;
+    color: #5C6B73;
+}
+
+#search-button {
+    background-color: #9DB4C0;
+}
+
+.nav-link {
+    color: #9DB4C0;
+    text-decoration: none;
+    margin-right: 2vh
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+#dual-container {
+    height: 100%;
+    width: 85vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: auto;
+    margin-top: 5vh;
+    flex-direction: column;
+}
+
+#upload-form {
+    flex: 1;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#example-data {
+    display: inline;
+}
+
+#container {
+    flex: 2;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#form-holder {
+    display:flex;
+    flex-direction: column;
+    gap: 2vh;
+    text-align: center;
+    margin: 3vh;
+}
+
+#productSelect {
+    width: 20vw;
+    display: block;
+    margin: 0 auto;
+}
+
+#productForm{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 20vw;
+    gap: 1vh;
+    margin: 0 auto;
+}
+
+.form-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+#submit-btn {
+    display: flex;
+    align-content: center;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+footer {
+    height: 12vh;
+    background-color: #5C6B73;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #9DB4C0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer img {
+    height: 4vh;
+    text-align: center;
+}
+
+.footer-content {
+    display: block;
+    text-align: center;
+}
