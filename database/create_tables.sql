@@ -1,58 +1,42 @@
-CREATE TABLE `users` (
-    `userId` INT NOT NULL AUTO_INCREMENT,
-    `userCreated` DATETIME NOT NULL,
-    `userName` VARCHAR(20) NOT NULL,
-    `userEmail` VARCHAR(50) NOT NULL,
-    `userPassword` VARCHAR(20) NOT NULL,
-    `userType` CHAR(10) NOT NULL,
-    PRIMARY KEY (`userId`),
-    UNIQUE INDEX `userId_UNIQUE` (`userId` ASC) VISIBLE
+CREATE TABLE users (
+    userId INTEGER PRIMARY KEY,
+    userCreated DATETIME DEFAULT CURRENT_TIMESTAMP,
+    userName TEXT NOT NULL,
+    userEmail TEXT NOT NULL,
+    userPassword TEXT NOT NULL,
+    userType TEXT NOT NULL
 );
 
-CREATE TABLE `cart` (
-    `cartId` INT NOT NULL AUTO_INCREMENT,
-    `status` VARCHAR(9) NOT NULL,
-    `dateCreated` DATETIME NOT NULL,
-    `userId` INT NOT NULL,
-    PRIMARY KEY (`cartId`),
-    UNIQUE INDEX `cartId_UNIQUE` (`cartId` ASC) VISIBLE,
-    UNIQUE INDEX `userId_UNIQUE` (`userId` ASC) VISIBLE,
-    CONSTRAINT `userId` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE cart (
+    cartId INTEGER PRIMARY KEY,
+    status TEXT NOT NULL,
+    dateCreated DATETIME DEFAULT CURRENT_TIMESTAMP,
+    userId INTEGER NOT NULL,
+    FOREIGN KEY (userId) REFERENCES users(userId)
 );
 
-CREATE TABLE `categories` (
-    `categoryId` INT NOT NULL AUTO_INCREMENT,
-    `categoryName` VARCHAR(10) NOT NULL,
-    `order` INT NOT NULL,
-    PRIMARY KEY (`categoryId`),
-    UNIQUE INDEX `categoryId_UNIQUE` (`categoryId` ASC) VISIBLE,
-    UNIQUE INDEX `categoryName_UNIQUE` (`categoryName` ASC) VISIBLE
+CREATE TABLE categories (
+    categoryId INTEGER PRIMARY KEY,
+    categoryName TEXT NOT NULL,
+    categoryOrder INTEGER NOT NULL
 );
 
-CREATE TABLE `products` (
-    `productId` INT NOT NULL AUTO_INCREMENT,
-    `productName` VARCHAR(50) NOT NULL,
-    `productDesc` VARCHAR(100) NOT NULL,
-    `imageUrl` VARCHAR(100) NOT NULL,
-    `price` DECIMAL(5, 2) NOT NULL,
-    `productSet` VARCHAR(5) NOT NULL,
-    `productYear` INT NOT NULL,
-    `categoryId` INT NOT NULL,
-    PRIMARY KEY (`productId`),
-    UNIQUE INDEX `productId_UNIQUE` (`productId` ASC) VISIBLE,
-    UNIQUE INDEX `categoryId_UNIQUE` (`categoryId` ASC) VISIBLE,
-    CONSTRAINT `categoryId` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`categoryId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE products (
+    productId INTEGER PRIMARY KEY,
+    productName TEXT NOT NULL,
+    productDescription TEXT NOT NULL,
+    imageUrl TEXT NOT NULL,
+    price REAL NOT NULL,
+    categoryId INTEGER NOT NULL,
+    isFeatured INTEGER DEFAULT 0,
+    FOREIGN KEY (categoryId) REFERENCES categories(categoryId)
 );
 
-CREATE TABLE `cartproducts` (
-    `cartProductsId` INT NOT NULL AUTO_INCREMENT,
-    `productId` INT NOT NULL,
-    `cartId` INT NOT NULL,
-    `quantity` INT NOT NULL,
-    PRIMARY KEY (`cartProductsId`),
-    UNIQUE INDEX `cartProductsId_UNIQUE` (`cartProductsId` ASC) VISIBLE,
-    UNIQUE INDEX `productId_UNIQUE` (`productId` ASC) VISIBLE,
-    UNIQUE INDEX `cartId_UNIQUE` (`cartId` ASC) VISIBLE,
-    CONSTRAINT `productId` FOREIGN KEY (`productId`) REFERENCES `products` (`productId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-    CONSTRAINT `cartId` FOREIGN KEY (`cartId`) REFERENCES `cart` (`cartId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+CREATE TABLE cartproducts (
+    cartProductsId INTEGER PRIMARY KEY,
+    cartId INTEGER NOT NULL,
+    productId INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    FOREIGN KEY (cartId) REFERENCES cart(cartId),
+    FOREIGN KEY (productId) REFERENCES products(productId)
 );

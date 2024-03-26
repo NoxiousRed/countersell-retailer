@@ -1,9 +1,9 @@
-DROP TABLE `users`;
+DROP TABLE users;
 
-DROP TABLE `cart`;
+DROP TABLE cart;
 
-DROP TABLE `categories`;
+DROP TABLE categories;
 
-DROP TABLE `products`;
+DROP TABLE products;
 
-DROP TABLE `cartproducts`;
+DROP TABLE cartproducts;
