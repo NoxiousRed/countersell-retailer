@@ -2,7 +2,7 @@ CREATE TABLE users (
     userId INTEGER PRIMARY KEY,
     userCreated DATETIME DEFAULT CURRENT_TIMESTAMP,
     userName TEXT NOT NULL,
-    userEmail TEXT NOT NULL,
+    userEmail TEXT NOT NULL UNIQUE,
     userPassword TEXT NOT NULL,
     userType TEXT NOT NULL
 );
