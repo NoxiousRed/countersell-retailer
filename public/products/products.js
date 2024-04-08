@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     try {
         const response = await fetch('http://localhost:3000/products');
-        products = await response.json;
+        products = await response.json();
 
         console.log(products);
         let listProduct = document.querySelector('.list-products')
