@@ -6,7 +6,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Admin Upload</title>
     <link rel="stylesheet" href="admin.css">
-    <script src="upload.js" defer></script>
+    <script src="edit.js" defer></script>
 </head>
 
 <body>
@@ -47,8 +47,7 @@
 
                     <label for="productSelect">Select a product to Edit:</label>
                     <select id="productSelect">
-                        <option value="1">ExCard1</option>
-                        <option value="2">ExCard2</option>
+                        <option disabled selected value> -- select an option -- </option>
                     </select>
 
                     <form id="productForm">
@@ -69,23 +68,33 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="productPrice">Product Description:</label>
+                            <label for="productDescription">Product Description:</label>
                             <input type="text" id="productDescription" name="productDescription" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="productPrice">Product Set:</label>
+                            <label for="productSet">Product Set:</label>
                             <input type="text" id="productSet" name="productSet" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="productPrice">Product Year:</label>
+                            <label for="productYear">Product Year:</label>
                             <input type="text" id="productYear" name="productYear" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="productPrice">Image Path:</label>
+                            <label for="productImage">Image Path:</label>
                             <input type="text" id="productImage" name="productImage" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoryId">Category Id:</label>
+                            <input type="text" id="categoryId" name="categoryId" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="isFeatured">Is Featured?:</label>
+                            <input type="text" id="isFeatured" name="isFeatured" required>
                         </div>
 
                         <button id="submit-btn" type="submit">Save Changes</button>

@@ -1,10 +1,12 @@
 const express = require('express')
 var cors = require('cors')
+const bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 
 app.use(cors())
 app.use(express.static('public'))
+app.use(bodyParser.json());
 
 //get all products
 app.get('/products', (req, res) => {
@@ -18,6 +20,37 @@ app.get('/details/:id', (req, res) => {
         const id = req.params.id;
         const details = getProductDetails(id)
         res.json(details)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+app.post('/products/new', (req, res) => {
+    try {
+        console.log("Recieved Post!")
+        const newProducts = req.body
+        products.push(newProducts)
+        res.json(products)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+app.put('/:id', (req, res) => {
+    try {
+        console.log("Recieved Put!")
+
+        const data = req.body
+        const id = req.params.id;
+
+        const index = products.findIndex(product => product.productId == id);
+
+        products[index] = {
+            ...products[index],
+            ...data
+        };
+        res.json(products)
+        console.log(products)
     } catch (err) {
         console.log(err)
     }
