@@ -1,13 +1,28 @@
 const sqlite3 = require('sqlite3');
+const sqlite = require('sqlite');
+const bettersqlite3 = require('better-sqlite3');
 const fs = require('fs');
 
-const db = new sqlite3.Database('ecommerce.db', (err) => {
+
+const db3 = new bettersqlite3("./database/ecommerce.db");
+
+const db2 = new sqlite.Database('ecommerce.db', (err) => {
     if (err) {
         console.error('Error connecting to the database: ', err.message);
     } else {
-        console.log('Connected to database.');
+        console.log('Connected to database in database.js');
     }
 });
+
+
+async function getDBConnection() {
+    const db = await sqlite.open({
+        filename: 'ecommerce.db',
+        driver: sqlite3.Database
+    });
+    console.log("db:" + db.filename);
+    return db;
+}
 
 //check if tables exist before calling createTables
 function tablesExist(callback) {
@@ -22,6 +37,22 @@ function tablesExist(callback) {
     })
 }
 
+
+function getAll() {
+    let qry = "SELECT * FROM products;";
+    let results = db3.prepare(qry).all([]);
+    // let results= ["one","two"];
+    console.log(results);
+    return results;
+}
+
+function getProductDetails(id) {
+    let qry = "SELECT * FROM products where productId=?;";
+    let item = db3.prepare(qry).get([id]);
+    // let results= ["one","two"];
+    console.log(item);
+    return item;
+}
 
 //function to create tables
 function createTables() {
@@ -55,6 +86,8 @@ function closeConnection() {
 module.exports = {
     tablesExist,
     createTables,
+    getAll,
+    getProductDetails,
     closeConnection,
-    db
+    // db
 };

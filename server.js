@@ -1,7 +1,8 @@
 const express = require('express')
 var cors = require('cors')
 const bodyParser = require('body-parser');
-const { getDbConnection } = require('./public/app.js')
+//const { getDbConnection } = require('./public/app.js')
+const database = require('./database/database');
 const app = express()
 const port = 3000
 
@@ -10,23 +11,23 @@ app.use(express.static('public'))
 app.use(bodyParser.json());
 
 //get all products
-app.get('/products', async (req, res) => {
-    try{
-        let query = 'SELECT * FROM products ORDER BY productId'
-        let db = await getDbConnection();
-        let products = await db.all(query)
-        await db.close
-        res.json(products);
-    } catch (err) {
-        console.log(err)
-    }
+app.get('/products', (req, res) => {
+    let products = database.getAll();
+    console.log(products);
+    // await db.close
+    res.json(products);
 })
+
+app.get("/home", (req, res) => {
+    res.json('"test":"test"');
+})
+
 
 //get single card details
 app.get('/details/:id', (req, res) => {
     try {
         const id = req.params.id;
-        const details = getProductDetails(id)
+        const details = database.getProductDetails(id)
         res.json(details)
     } catch (err) {
         console.log(err)
@@ -69,7 +70,7 @@ app.listen(port, () => {
 })
 
 function getProductDetails(cardId) {
-    for(let i = 0; i < products.length; i++){
+    for (let i = 0; i < products.length; i++) {
         if (products[i].productId == cardId) {
             return products[i];
         }
