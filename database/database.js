@@ -26,7 +26,7 @@ function tablesExist(callback) {
 //function to create tables
 function createTables() {
     //reads contents of create_tables and stores it
-    const createTablesSql = fs.readFileSync('create_tables.sql', 'utf8');
+    const createTablesSql = fs.readFileSync('./database/create_tables.sql', 'utf8');
 
     db.serialize(() => {
         //execute create_tables
@@ -55,5 +55,6 @@ function closeConnection() {
 module.exports = {
     tablesExist,
     createTables,
-    closeConnection
+    closeConnection,
+    db
 };

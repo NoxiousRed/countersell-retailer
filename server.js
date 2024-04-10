@@ -1,6 +1,7 @@
 const express = require('express')
 var cors = require('cors')
 const bodyParser = require('body-parser');
+const { getDbConnection } = require('./public/app.js')
 const app = express()
 const port = 3000
 
@@ -9,9 +10,16 @@ app.use(express.static('public'))
 app.use(bodyParser.json());
 
 //get all products
-app.get('/products', (req, res) => {
-    const products = getAllProducts();
-    res.json(products);
+app.get('/products', async (req, res) => {
+    try{
+        let query = 'SELECT * FROM products ORDER BY productId'
+        let db = await getDbConnection();
+        let products = await db.all(query)
+        await db.close
+        res.json(products);
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 //get single card details
