@@ -41,17 +41,82 @@ function tablesExist(callback) {
 function getAll() {
     let qry = "SELECT * FROM products;";
     let results = db3.prepare(qry).all([]);
-    // let results= ["one","two"];
-    console.log(results);
     return results;
 }
 
 function getProductDetails(id) {
     let qry = "SELECT * FROM products where productId=?;";
     let item = db3.prepare(qry).get([id]);
-    // let results= ["one","two"];
-    console.log(item);
     return item;
+}
+
+function updateDetails(id, data) {
+    try {
+        let qry = "UPDATE products SET productId=?, productName=?, productDescription=?, imageUrl=?, price=?, categoryId=?, isFeatured=?, setIdentifier=?, setYear=? WHERE productId=?"
+        let updatedItem = db3.prepare(qry).run([
+            data.productId,
+            data.productName,
+            data.productDescription,
+            data.imageUrl,
+            data.price,
+            data.categoryId,
+            data.isFeatured,
+            data.setIdentifier,
+            data.setYear,
+            id
+        ])
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function addToCart(data) {
+    try {
+        let qry = "INSERT INTO cartproducts (productId, cartId, quantity) VALUES (?, ?, ?);"
+        let cart = db3.prepare(qry).run([
+            data.productId,
+            data.cartId,
+            data.quantity
+        ])
+        return cart
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function getCart(id) {
+    try {
+        let qry = "SELECT c.cartId, cp.productId, cp.quantity, p.productId, p.imageUrl, p.productName, p.price FROM cart c JOIN cartproducts cp ON c.cartId = cp.cartId JOIN products p ON cp.productId = p.productId WHERE userId=?;"
+        let cart = db3.prepare(qry).all([id]);
+        return cart
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function updateCart(data) {
+    try {
+        let qry = "UPDATE cartproducts SET quantity=? WHERE cartId=? AND productId=?";
+        let updatedCart = db3.prepare(qry).run([
+            data.quantity,
+            data.cartId,
+            data.productId
+        ])
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+function removeItem(data) {
+    try {
+        let qry = "DELETE FROM cartproducts WHERE cartId=? AND productId=?";
+        let updatedCart = db3.prepare(qry).run([
+            data.cartId,
+            data.productId
+        ])
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 //function to create tables
@@ -89,5 +154,10 @@ module.exports = {
     getAll,
     getProductDetails,
     closeConnection,
+    updateDetails,
+    getCart,
+    updateCart,
+    removeItem,
+    addToCart
     // db
 };

@@ -4,31 +4,41 @@ document.addEventListener('DOMContentLoaded', function () {
     function init() {
         console.log("Window Loaded!");
         //set up form on upload.html to accept submission
-        let uploadForm = id('upload-form')
-        uploadForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            submitForm();
-        });
+        let form = document.querySelector('#upload-form')
+        let file = document.querySelector('#file-input')
+        
+        form.addEventListener('submit', submitForm);
     }
 
-    function submitForm() {
-        console.log("Form submitted!")
-        let formData = new FormData(id('upload-form')); //pass in form
+    function submitForm(event) {
+        let str = event.target.result;
+        console.log('string', str)
+        event.preventDefault()
+        let file = document.querySelector('#file-input')
 
-        //convert form data to json object
-        let object = {}
-        for (let [key, value] of formData.entries()) {
-            object[key] = value;
+        if (!file.value.length) return;
+
+        console.log("Form submitted!")
+
+        var reader = new FileReader();
+        reader.readAsText(file.files[0])
+        reader.onload = function(event) {
+            let str = event.target.result;
+            let json = JSON.parse(str);
+            //var fileContent = JSON.parse(reader.result)
+            console.log('string', str);
+            console.log('json', json)
         }
-        const formDataJson = JSON.stringify(object)
-        console.log(formDataJson)
-        fetch("http://localhost:3000/products/new", {
+
+        
+
+        /* fetch("http://localhost:3000/products/new", {
             method: 'POST',
             body: formDataJson
         })
             .then(checkStatus)
             .then(console.log)
-            .catch(alert);
+            .catch(alert); */
     }
 
     //helper functions

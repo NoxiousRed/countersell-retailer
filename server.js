@@ -1,7 +1,6 @@
 const express = require('express')
 var cors = require('cors')
 const bodyParser = require('body-parser');
-//const { getDbConnection } = require('./public/app.js')
 const database = require('./database/database');
 const app = express()
 const port = 3000
@@ -13,15 +12,8 @@ app.use(bodyParser.json());
 //get all products
 app.get('/products', (req, res) => {
     let products = database.getAll();
-    console.log(products);
-    // await db.close
     res.json(products);
 })
-
-app.get("/home", (req, res) => {
-    res.json('"test":"test"');
-})
-
 
 //get single card details
 app.get('/details/:id', (req, res) => {
@@ -29,6 +21,49 @@ app.get('/details/:id', (req, res) => {
         const id = req.params.id;
         const details = database.getProductDetails(id)
         res.json(details)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+//get cart details for user
+app.get('/cart/:id', (req, res) => {
+    try{
+        const userId = req.params.id;
+        const cart = database.getCart(userId)
+        res.json(cart)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+//adding an item to a cart
+app.post('/cart/:id', (req, res) => {
+    try {
+        const data = req.body
+        const cart = database.addToCart(data)
+        res.json(cart)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+//endpoint for updating cart entries
+app.put('/cart/:id', (req, res) => {
+    try {
+        const data = req.body
+        const cart = database.updateCart(data)
+        res.json(cart)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+app.delete('/cart/:id', (req, res) => {
+    try {
+        const data = req.body
+        const cart = database.removeItem(data)
+        res.json(cart)
     } catch (err) {
         console.log(err)
     }
@@ -52,14 +87,8 @@ app.put('/:id', (req, res) => {
         const data = req.body
         const id = req.params.id;
 
-        const index = products.findIndex(product => product.productId == id);
-
-        products[index] = {
-            ...products[index],
-            ...data
-        };
-        res.json(products)
-        console.log(products)
+        const update = database.updateDetails(id, data)
+        res.json(update)
     } catch (err) {
         console.log(err)
     }
@@ -69,17 +98,6 @@ app.listen(port, () => {
     console.log(`example app listening on port ${port}`)
 })
 
-function getProductDetails(cardId) {
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].productId == cardId) {
-            return products[i];
-        }
-    }
-}
-
-function getAllProducts() {
-    return products
-}
 
 const products = [
     {

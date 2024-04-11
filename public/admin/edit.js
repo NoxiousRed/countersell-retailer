@@ -30,12 +30,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             //populate form boxes with the card's currently held details
             id('productId').value = card.productId;
             id('productName').value = card.productName;
-            var price = Number(card.price.replace(/[^0-9.-]+/g, ""));
-            id('productPrice').value = price;
+            id('price').value = card.price;
             id('productDescription').value = card.productDescription;
-            id('productSet').value = card.setIdentifier;
-            id('productYear').value = card.setYear;
-            id('productImage').value = card.imageUrl;
+            id('setIdentifier').value = card.setIdentifier;
+            id('setYear').value = card.setYear;
+            id('imageUrl').value = card.imageUrl;
             id('categoryId').value = card.categoryId;
             id('isFeatured').value = card.isFeatured;
 
@@ -49,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         try {
             let params = new FormData(this)
+
             let productId = params.get('productId')
             let jsonBody = JSON.stringify(Object.fromEntries(params));
 
