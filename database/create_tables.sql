@@ -27,8 +27,10 @@ CREATE TABLE products (
     productDescription TEXT NOT NULL,
     imageUrl TEXT NOT NULL,
     price REAL NOT NULL,
-    categoryId INTEGER NOT NULL,
+    setIdentifier TEXT NOT NULL,
     isFeatured INTEGER DEFAULT 0,
+    setYear TEXT NOT NULL,
+    categoryId INTEGER NOT NULL
     FOREIGN KEY (categoryId) REFERENCES categories(categoryId)
 );
 

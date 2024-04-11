@@ -1,56 +1,44 @@
-'use strict';
-(function () {
-    window.addEventListener('load', init);
+document.addEventListener('DOMContentLoaded', function () {
+    init();
 
     function init() {
         console.log("Window Loaded!");
         //set up form on upload.html to accept submission
-        id('upload-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            submitForm();
-        });
+        let form = document.querySelector('#upload-form')
+        let file = document.querySelector('#file-input')
+        
+        form.addEventListener('submit', submitForm);
     }
 
-    //REPLACE URL WITH EXPRESS SERVER
-    const POST_URL = 'https://crudcrud.com/api/a6d60e4b3b214d6390c3018506182424';
-    function submitForm() {
+    function submitForm(event) {
+        let str = event.target.result;
+        console.log('string', str)
+        event.preventDefault()
+        let file = document.querySelector('#file-input')
+
+        if (!file.value.length) return;
+
         console.log("Form submitted!")
-        let formData = new FormData(id('upload-form')); //pass in form
-        //placeholder justcors for seeing resulting JSON after upload
-        let corsUrl = 'https://justcors.com/tl_783a341/' + POST_URL;
-        fetch(corsUrl, {
+
+        var reader = new FileReader();
+        reader.readAsText(file.files[0])
+        reader.onload = function(event) {
+            let str = event.target.result;
+            let json = JSON.parse(str);
+            //var fileContent = JSON.parse(reader.result)
+            console.log('string', str);
+            console.log('json', json)
+        }
+
+        
+
+        /* fetch("http://localhost:3000/products/new", {
             method: 'POST',
-            body: formData
+            body: formDataJson
         })
             .then(checkStatus)
             .then(console.log)
-            .catch(alert);
-    }
-
-    function displayData() {
-        let url = POST_URL
-
-        //chaining thens allows you to access whatever data is returned in a then to following thens.
-        fetch(url)
-            .then(checkStatus)
-            .then((submittedData) => {
-                console.log(submittedData);
-                let div = id('container');
-
-                let responseData = document.createElement('p');
-                responseData.innerHTML = 'Successfully uploaded data:';
-                div.appendChild(responseData);
-
-                for (const item of submittedData) {
-                    let cardName = document.createElement('p');
-                    const name = item['name'];
-                    repoName.innerHTML = 'Name: ' + name;
-                    div.appendChild(cardName);
-                }
-            })
-            .catch((error) => {
-                console.error('Error: ', error);
-            });
+            .catch(alert); */
     }
 
     //helper functions
