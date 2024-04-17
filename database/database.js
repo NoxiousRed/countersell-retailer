@@ -70,6 +70,28 @@ function updateDetails(id, data) {
     }
 }
 
+function postProducts(data) {
+    try {
+        let qry = "INSERT INTO products (productId, productName, productDescription, imageUrl, price, categoryId, isFeatured, setIdentifier, setYear) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        data.forEach(productData => {
+            db3.prepare(qry).run([
+                productData.productId,
+                productData.productName,
+                productData.productDescription,
+                productData.imageUrl,
+                productData.price,
+                productData.categoryId,
+                productData.isFeatured,
+                productData.setIdentifier,
+                productData.setYear
+            ])
+        })
+        return data
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 function addToCart(data) {
     try {
         let qry = "INSERT INTO cartproducts (productId, cartId, quantity) VALUES (?, ?, ?);"
@@ -158,6 +180,6 @@ module.exports = {
     getCart,
     updateCart,
     removeItem,
-    addToCart
-    // db
+    addToCart,
+    postProducts
 };

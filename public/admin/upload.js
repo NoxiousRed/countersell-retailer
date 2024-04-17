@@ -1,18 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    init();
 
-    function init() {
-        console.log("Window Loaded!");
-        //set up form on upload.html to accept submission
-        let form = document.querySelector('#upload-form')
-        let file = document.querySelector('#file-input')
-        
-        form.addEventListener('submit', submitForm);
-    }
+    console.log("Window Loaded!");
+    //set up form on upload.html to accept submission
+    let form = document.querySelector('#upload-form')
+    let file = document.querySelector('#file-input')
 
-    function submitForm(event) {
-        let str = event.target.result;
-        console.log('string', str)
+    form.addEventListener('submit', async function (event) {
         event.preventDefault()
         let file = document.querySelector('#file-input')
 
@@ -22,24 +15,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var reader = new FileReader();
         reader.readAsText(file.files[0])
-        reader.onload = function(event) {
+        reader.onload = function (event) {
             let str = event.target.result;
-            let json = JSON.parse(str);
-            //var fileContent = JSON.parse(reader.result)
-            console.log('string', str);
-            console.log('json', json)
+            var fileContent = JSON.parse(reader.result)
+
+            //make a new post to endpoint for product info
+            fetch("http://localhost:3000/products/new", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(fileContent)
+            })
+                .then(checkStatus)
+                .then(window.location.href = '/products/products.html')
+                .catch(alert);
+            
         }
 
-        
 
-        /* fetch("http://localhost:3000/products/new", {
-            method: 'POST',
-            body: formDataJson
-        })
-            .then(checkStatus)
-            .then(console.log)
-            .catch(alert); */
-    }
+    });
 
     //helper functions
     function id(idName) {
@@ -51,4 +46,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return response.json();
     }
-})();
+});
