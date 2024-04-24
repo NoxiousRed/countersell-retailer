@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         const response = await fetch(`http://localhost:3000/details/${id}`)
         const cardDetails = await response.json()
 
+        const cardFetch = await fetch(`https://api.scryfall.com/cards/${cardDetails.setIdentifier.toLowerCase()}/${cardDetails.cardNumber}`)
+        const cardFetchJson = await cardFetch.json()
+
         let imageDetails = document.querySelector('.img-container')
         let productDetails = document.querySelector('.card-details')
 
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         displayDetails.className = 'card-details';
         displayDetails.innerHTML = `
         <h1>${cardDetails.productName}</h1>
-        <h3>Card Price: ${cardDetails.price}</h3>
+        <h3>Card Price: ${cardFetchJson.prices.usd}</h3>
         <h3>Description: ${cardDetails.productDescription}</h3>
         <h3>Set Identifier: ${cardDetails.setIdentifier}</h3>
         <h3>Set Year: ${cardDetails.setYear}</h3>`

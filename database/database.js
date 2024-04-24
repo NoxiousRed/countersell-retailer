@@ -108,7 +108,7 @@ function addToCart(data) {
 
 function getCart(id) {
     try {
-        let qry = "SELECT c.cartId, cp.productId, cp.quantity, p.productId, p.imageUrl, p.productName, p.price FROM cart c JOIN cartproducts cp ON c.cartId = cp.cartId JOIN products p ON cp.productId = p.productId WHERE userId=?;"
+        let qry = "SELECT c.cartId, cp.productId, cp.quantity, p.setIdentifier, p.cardNumber, p.productId, p.imageUrl, p.productName, p.price FROM cart c JOIN cartproducts cp ON c.cartId = cp.cartId JOIN products p ON cp.productId = p.productId WHERE userId=?;"
         let cart = db3.prepare(qry).all([id]);
         return cart
     } catch (err) {

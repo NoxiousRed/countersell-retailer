@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 })
 
-function createListItem(card, container) {
+async function createListItem(card, container) {
+    //make call to scryfall api to load in card price
+    const cardDetails = await fetch(`https://api.scryfall.com/cards/${card.setIdentifier.toLowerCase()}/${card.cardNumber}`)
+    const cardDetailsJson = await cardDetails.json()
     //link card to corresponding container
     const listItem = document.createElement('p');
     listItem.className = 'list-item';
-    listItem.innerHTML = `<img src = ${card.imageUrl} alt = "card-placeholder"><br>${card.productName}<br>${card.price}<br><a href="../details/details.html?id=${card.productId}">View Card</a>`;
+    listItem.innerHTML = `<img src = ${card.imageUrl} alt = "card-placeholder"><br>${card.productName}<br>${cardDetailsJson.prices.usd}<br><a href="../details/details.html?id=${card.productId}">View Card</a>`;
     container.appendChild(listItem);
 
     return listItem;
