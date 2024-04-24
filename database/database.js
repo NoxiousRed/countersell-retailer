@@ -52,13 +52,12 @@ function getProductDetails(id) {
 
 function updateDetails(id, data) {
     try {
-        let qry = "UPDATE products SET productId=?, productName=?, productDescription=?, imageUrl=?, price=?, categoryId=?, isFeatured=?, setIdentifier=?, setYear=? WHERE productId=?"
+        let qry = "UPDATE products SET productId=?, productName=?, productDescription=?, imageUrl=?, categoryId=?, isFeatured=?, setIdentifier=?, setYear=? WHERE productId=?"
         let updatedItem = db3.prepare(qry).run([
             data.productId,
             data.productName,
             data.productDescription,
             data.imageUrl,
-            data.price,
             data.categoryId,
             data.isFeatured,
             data.setIdentifier,
@@ -72,18 +71,18 @@ function updateDetails(id, data) {
 
 function postProducts(data) {
     try {
-        let qry = "INSERT INTO products (productId, productName, productDescription, imageUrl, price, categoryId, isFeatured, setIdentifier, setYear) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"
+        let qry = "INSERT INTO products (productId, productName, productDescription, imageUrl, categoryId, isFeatured, setIdentifier, setYear, cardNumber) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);"
         data.forEach(productData => {
             db3.prepare(qry).run([
                 productData.productId,
                 productData.productName,
                 productData.productDescription,
                 productData.imageUrl,
-                productData.price,
                 productData.categoryId,
                 productData.isFeatured,
                 productData.setIdentifier,
-                productData.setYear
+                productData.setYear,
+                productData.cardNumber
             ])
         })
         return data
@@ -108,7 +107,7 @@ function addToCart(data) {
 
 function getCart(id) {
     try {
-        let qry = "SELECT c.cartId, cp.productId, cp.quantity, p.setIdentifier, p.cardNumber, p.productId, p.imageUrl, p.productName, p.price FROM cart c JOIN cartproducts cp ON c.cartId = cp.cartId JOIN products p ON cp.productId = p.productId WHERE userId=?;"
+        let qry = "SELECT c.cartId, cp.productId, cp.quantity, p.setIdentifier, p.cardNumber, p.productId, p.imageUrl, p.productName FROM cart c JOIN cartproducts cp ON c.cartId = cp.cartId JOIN products p ON cp.productId = p.productId WHERE userId=?;"
         let cart = db3.prepare(qry).all([id]);
         return cart
     } catch (err) {
