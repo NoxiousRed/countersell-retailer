@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             //populate form boxes with the card's currently held details
             id('productId').value = card.productId;
             id('productName').value = card.productName;
-            id('price').value = card.price;
             id('productDescription').value = card.productDescription;
             id('setIdentifier').value = card.setIdentifier;
             id('setYear').value = card.setYear;

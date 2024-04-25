@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(fileContent)
             })
                 .then(checkStatus)
-                .then(window.location.href = 'public/products/products.html')
+                .then(window.location.href = '../products/products.html')
                 .catch(alert);
             
         }

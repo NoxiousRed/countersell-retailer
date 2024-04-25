@@ -13,15 +13,22 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         let cart = document.querySelector('.cart-contents')
 
-        await Promise.all(cartDetails.map(item => 
+        await Promise.all(cartDetails.map(item =>
             createCartItem(item, cart)
         ))
-        /* cartDetails.forEach(item => {
-            const cartItem = createCartItem(item, cart)
-        }) */
 
         const costDiv = document.getElementById('total-amount')
         getTotalCost(costDiv)
+
+        const checkoutButton = document.getElementById('checkout-button')
+        checkoutButton.addEventListener('click', async function () {
+            try {
+                await Promise.all(cartDetails.map(item => handleRemove(item.cartId, item.productId)));
+                window.location.reload();
+            } catch (err) {
+                console.log(err)
+            }
+        })
 
     } catch (err) {
         console.log(err)
